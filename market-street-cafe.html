@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+<body>
+<style>
+    td {padding-right: 30px;
+        vertical-align:top;}
+        /* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+table {
+  border-spacing: 1em 1.5em;
+  padding: 0 2em 1em 0;
+  width:90%;
+}
+td:first-child {
+  width:20%;
+}
+th, td:first-child {
+        font-weight: bold;
+        min-width:200px;
+    }
+  @media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    td {
+        border: none;
+        position: relative;
+        padding: 5px;
+        
+    }
+    th, td:first-child {
+        font-weight: bold;
+    }
+    /* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: gray; 
+}
+}
+
+.wrapper {display: grid;
+grid-template-columns: repeat (12, 1fr);
+  grid-auto-rows: minmax (75px, auto);
+  grid-gap: 5px;
+  grid-template-areas:
+  
+    "sd sd sd sd main main main main main main main main"
+    "ft ft ft ft ft ft ft ft ft ft ft ft";
+    
+}
+.header {grid-area: hd;
+background: gray;}
+.content {grid-area: main;
+
+margin-top: 15px;
+padding:5px;}
+.side {grid-area: sd;
+border-right: 2px solid black;
+margin-top: 15px;
+padding:5px;
+padding-right: 10px;
+margin-right:15px;}
+.footer {grid-area: ft;
+background: gray;
+margin-top: 50px;
+text-align:center;}
+
+@media screen and (max-width: 640px)
+{
+  .wrapper {grid-template-areas:
+
+    "sd sd sd sd sd sd sd sd sd sd sd sd"
+    "main main main main main main main main main main main main"
+ 
+    "ft ft ft ft ft ft ft ft ft ft ft ft";
+}
+  
+}
+.side {border-right:none;}
+    #myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Keep Lockhart Local</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                  </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Restaurants
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Market Street Cafe</a>
+                
+              </div>
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>-->
+        </div>
+      </nav>
+<div class="container">
+<h2>Market Street Cafe</h2>
+<p>Market Street Cafe & Market is a collaboration of passions of the two masterminds, Chef Sutton & Shelby VanGunten. Chef Sutton has been in the food industry for 20 years and is the curator of Gonzo Juice LLC. His creativity and passion for food has given him the opportunity to own and operate two cafes and two food truck operations throughout his career. He has also supervised and has been the food and safety educator at Whole Foods Inc. Sutton knows his flavors and he has taken joy in creating special spice blends for his ever evolving menus. His wife Shelby is a self taught Pastry Chef who grew up in central Texas learning to cook from her elders and always exploring new ideas. The last few years have seen her blossom into a very talented Chef.</p>
+
+<!--<img id="myImg" src="https://www.w3schools.com/howto/img_fjords.jpg" alt="Trolltunga, Norway" width="300" height="200">-->
+<a href="https://www.facebook.com/102EastMarketStreetCafe/photos/2836479386637579" target="_blank"><button>View restaurant menu on Facebook</button></a>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+
+        <div class="wrapper">
+          <div class="content">
+              <h2>Menu</h2><table>
+                <tr>
+                <td style="vertical-align:top">Salmon, or Shrimp, or Scallops, or Crawfish & Grits</td>
+                <td>Pan seared salmon, or shrimp scampi, or scallop scampi, or crawfish scampi over course yellow savory grits served with avocado on a bed of spinach with roasted garlic compound butter, lemon wedge, and toast
+                    </td>
+                <td>$17</td>
+            </tr>
+
+            </table></div>
+        <div class="side">
+                <h2>Info</h2>102 E. Market St.<br>Lockhart, TX 78644<br><br>Hours of operation:<br>10 a.m.-9 p.m.<br>Closed Monday and Tuesday</div>
+        
+    </div>
+      </div>
+</body>
+</html>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+<script>
+// Get the modal
+    var modal = document.getElementById('myModal');
+    
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById('testclick');
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = "https://www.w3schools.com/howto/img_fjords.jpg";
+        captionText.innerHTML = "Menu";
+    }
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("modal")[0];
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() { 
+        modal.style.display = "none";
+    }</script>
+</body>
+</html>

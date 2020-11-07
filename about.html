@@ -7,6 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <style>
+        .wrapper {
+  position: relative;
+  display: inline-block;
+}
+.close:before {
+  content: '✕';
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+        </style>
+        <div class="wrapper">
+            <img src="https://www.google.com/images/srpr/logo11w.png" />
+            <span class="close"></span>
+          </div>
+    <script>
+    document.querySelector('.close').addEventListener('click', function() {
+  console.log('close');
+});
+    </script>
 </body>
 </html>
