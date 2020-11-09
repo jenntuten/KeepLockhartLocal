@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <body>
+                <h1><b><center>This is a test page for printing</center></b><hr color=#00cc00 width=95%></h1>
+                <b>Div 1:</b> <a href="javascript:printDiv('div1')">Print</a><br>
+                <div id="div1">This is the div1's print output</div>
+                <br><br>
+                <b>Div 2:</b> <a href="javascript:printDiv('div2')">Print</a><br>
+                <div id="div2">This is the div2's print output</div>
+                <br><br>
+                <b>Div 3:</b> <a href="javascript:printDiv('div3')">Print</a><br>
+                <div id="div3">This is the div3's print output</div>
+                <b>Div 4:</b> <a href="javascript:printDiv('printmenu')">Print</a><br>
+                <div id="div3">This is the Print Menu's print output</div>
+                <div class="container" id="printmenu">
+                        <h2>Market Street Cafe</h2>
+                        <p>Market Street Cafe & Market is a collaboration of passions of the two masterminds, Chef Sutton & Shelby VanGunten. Chef Sutton has been in the food industry for 20 years and is the curator of Gonzo Juice LLC. His creativity and passion for food has given him the opportunity to own and operate two cafes and two food truck operations throughout his career. He has also supervised and has been the food and safety educator at Whole Foods Inc. Sutton knows his flavors and he has taken joy in creating special spice blends for his ever evolving menus. His wife Shelby is a self taught Pastry Chef who grew up in central Texas learning to cook from her elders and always exploring new ideas. The last few years have seen her blossom into a very talented Chef.</p>
+                        <a href="https://www.facebook.com/102EastMarketStreetCafe/photos/2836479386637579" target="_blank"><button>View restaurant menu on Facebook</button></a>
+           
+                <div class="wrapper" >
+                        <div class="content">
+                <h2>Menu</h2><table>
+                        <tr>
+                        <td style="vertical-align:top">Salmon, or Shrimp, or Scallops, or Crawfish & Grits</td>
+                        <td>Pan seared salmon, or shrimp scampi, or scallop scampi, or crawfish scampi over course yellow savory grits served with avocado on a bed of spinach with roasted garlic compound butter, lemon wedge, and toast
+                            </td>
+                        <td>$17</td>
+                    </tr>
+                    <tr>
+                            <td style="vertical-align:top">Eggs Benedict Florentine, Pork, Turkey, Ham, or Sausage</td>
+                            <td>Two poached eggs over sauteed spinach, braised pineapple pork, turkey, ham, or sausage on English muffin draped in hollandaise sauce with breakfast potatoes and broccoli
+                                </td>
+                            <td>$14</td>
+                        </tr>
+                        <tr>
+                                <td style="vertical-align:top">Veggie, Texas Chili, Braised Pork, and/or Cheese Omelette</td>
+                                <td>Omelette with choice of filling and/or cheese with home fries, broccoli, and rye toast
+                                    </td>
+                                <td>$14</td>
+                            </tr>
+                            <tr>
+                                    <td style="vertical-align:top">The All American</td>
+                                    <td>2 eggs any style, sausage, turkey, smoked chicken, or braised pork, breakfast potatoes, toast
+                                        </td>
+                                    <td>$10</td>
+                                </tr>
+                    </table></div>
+                <div class="side">
+                        <h2>Info</h2>102 E. Market St.<br>Lockhart, TX 78644<br><br>Hours of operation:<br>10 a.m.-9 p.m.<br>Closed Monday and Tuesday</div>
+                
+            </div>
+        </div>
+                
+            </body>
+        <script>
+                printDivCSS = new String ()
+                function printDiv(divId) {
+                    window.frames["print_frame"].document.body.innerHTML=printDivCSS + document.getElementById(divId).innerHTML;
+                    window.frames["print_frame"].window.focus();
+                    window.frames["print_frame"].window.print();
+                }
+            </script>
+</body>
+</html>

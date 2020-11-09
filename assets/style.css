@@ -1,6 +1,9 @@
+button {margin-bottom:5px;}
+tr {border-bottom:1px solid black;}
 td {padding-right: 30px;
     width:100%;
     vertical-align:top;
+    padding:5px;
 margin-bottom:20px;}
     /* Zebra striping */
 tr:nth-of-type(odd) { 
